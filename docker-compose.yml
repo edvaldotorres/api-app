@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  # Serviço de aplicação web (PHP+NGINX)
+  web:
+    image: php:8.0-fpm-alpine
+    # image: php:8.0-fpm-alpine
+    # Usado para construir uma nova imagem
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - principal
+    volumes:
+      - ./app/:/var/www/app/
+      - ./docker/nginx/sites:/etc/nginx/sites-available
+    ports:
+      - "80:80" #HTTP
+      - "443:443" #HTTPS
+    depends_on:
+      - postgres
+
+  # Serviço de aplicação Postgres
+  postgres:
+    image: postgres:14.3-alpine
+    restart: always
+    networks:
+      - principal
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: db_api_app
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 20000:5432
+
+networks:
+  principal:
+
+volumes:
+  postgres-data:
