@@ -20,7 +20,7 @@ response with a message welcoming the user to the API. */
 
 Route::get('/', function () {
     return response()->json([
-        'message' => 'Bem-vindo a API da Itarget <3, escolha uma versão da API para começar.'
+        'message' => 'Bem-vindo a API da Itarget escolha uma versão e comece a usar <3'
     ]);
 });
 
