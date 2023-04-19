@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Delivery extends Model
 {
     use HasFactory;
+
+    /* `` is an array property in the `Delivery` model class that specifies which attributes
+    are mass assignable. This means that these attributes can be set in bulk using the `create()` or
+    `update()` methods without having to individually set each attribute. In this case, the `title`,
+    `description`, `delivery_date`, and `is_delivered` attributes can be mass assigned. */
+
+    protected $fillable = [
+        'title',
+        'description',
+        'delivery_date',
+        'is_delivered',
+    ];
 }
