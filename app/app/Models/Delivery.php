@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Delivery extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /* `` is an array property in the `Delivery` model class that specifies which attributes
     are mass assignable. This means that these attributes can be set in bulk using the `create()` or
