@@ -37,7 +37,7 @@ class DeliveryController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $deliveries = $this->delivery->simplePaginate(10);
+        $deliveries = $this->delivery->orderBy('delivery_date')->paginate(5);
         return DeliveryResource::collection($deliveries);
     }
 
