@@ -47,6 +47,10 @@ NOTE: Create your database according to docker-compose.yml file
 cd app
 ```
 
+```sh
+composer install
+```
+
 5. Build the migrate.
 
 ```sh
