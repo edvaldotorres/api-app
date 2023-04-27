@@ -38,10 +38,14 @@ NOTE: This may take a while if this is the first time installing this as a conta
 4. Install the dependencies
 
 ```sh
-docker exec -it api-app_web_1 /bin/bash
+docker exec -it api-app-php-fpm-1 /bin/bash
 ```
 
-NOTE: Create your database according to docker-compose.yml file
+or
+
+```sh
+docker exec -it api-app-php-fpm-1 /sh
+```
 
 ```sh
 cd app
